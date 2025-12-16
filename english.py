@@ -13,7 +13,7 @@ class EnglishAuction():
 
     def play(self):
         # Input opening bid
-        self.cli.display('Started auction of type: Blind')
+        self.cli.display('Started auction of type: English')
         opening_bid = self.cli.prompt('Please enter the amount for the opening bid:')
         opening_bid = int(opening_bid)
         self.cli.display(f"Opening bid is: {opening_bid}")
@@ -40,7 +40,7 @@ class EnglishAuction():
                 bid = self.cli.prompt(
                     f"Standing bid is {standing_bid}. {bidder} bids:"
                 )
-                if bid == '':
+                if bid :
                     continue
                 bid = int(bid)
                 if bid > standing_bid:
@@ -48,10 +48,11 @@ class EnglishAuction():
                     leader = bidder
                     played = True
         winner = leader
+        return winner, standing_bid
 
 
 
-        # Display winner
+    # Display winner
         self.cli.display("\n~~~~~~~~\n")
         self.cli.display(f"Winner is {winner}. Winning bid is {standing_bid}.")
 
